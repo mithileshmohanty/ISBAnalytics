@@ -14,18 +14,36 @@ library(wordcloud2)
 # Define UI for application that draws a histogram
 shinyUI(fluidPage(
   
+  tags$head(tags$style(
+    HTML('
+           #sidebar {
+           background-color: #D3D3D3;
+           }
+           
+           body, label, input, button, select { 
+           font-family: "Arial";
+           }
+           #mainpanel {
+           background-color: #DEB887;
+           }
+             body, label, input, button, select { 
+               font-family: "Arial";
+             }'  
+    )
+  )),
+  
   # Application title
   titlePanel("NLP using Udpipe"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
-    sidebarPanel(
+    sidebarPanel( id = "sidebar",
       fileInput("fileText", "Upload Text File (.txt file)"),
       actionButton("checkButton", "Start Process")
     ),
     
     # Show a plot of the generated distribution
-    mainPanel(
+    mainPanel(id = "mainpanel",
       tabsetPanel(type = "tabs",
                   
                   tabPanel("Overview & App Description",
