@@ -1,0 +1,78 @@
+#
+# This is the user-interface definition of a Shiny web application. You can
+# run the application by clicking 'Run App' above.
+#
+# Find out more about building applications with Shiny here:
+# 
+#    http://shiny.rstudio.com/
+#
+
+library(shiny)
+library(wordcloud2)
+
+# Define UI for application that draws a histogram
+shinyUI(fluidPage(
+  
+  # Application title
+  titlePanel("NLP using Udpipe"),
+  
+  # Sidebar with a slider input for number of bins 
+  sidebarLayout(
+    sidebarPanel(
+      fileInput("fileText", "Upload Text File (.txt file)"),
+      actionButton("checkButton", "Start Process")
+    ),
+    
+    # Show a plot of the generated distribution
+    mainPanel(
+      tabsetPanel(type = "tabs",
+                  
+                  tabPanel("Overview & App Description",
+                           h1(p("Natural Language Processing in R using udpipe demo")),
+                           h4(p("Data input")),
+                           p("This app supports only text file (.txt) data file. The text file should be in ASCII encoding else the app will not work. For Best result the text corpus should be within 10 MB else theere will be heavy performance hit.",align="justify"),
+                           p("Some of the sample text files have been uploaded into Git and are available in raw format for use. Ideally all the demo text files are insidd ata folder. The app also requires english udpipe text corpus and requisite R packagages. The english udpipe has been downloaded and placed inside the data directory."),
+                           a(href="https://github.com/sudhir-voleti/sample-data-sets/blob/master/Segmentation%20Discriminant%20and%20targeting%20data/ConneCtorPDASegmentation.csv"
+                             ,"Sample data input file"), 
+                           a(href="https://github.com/sudhir-voleti/sample-data-sets/blob/master/Segmentation%20Discriminant%20and%20targeting%20data/ConneCtorPDASegmentation.csv"
+                             ,"Sample udpipe langauage file"),
+                           br(),
+                           h4('How to use this App'),
+                           p('To use this app, click on', 
+                             span(strong("Upload text File (.txt file)")),
+                             'and uppload a text file(upto 10 MB). Once Text File is uploaded click on Start Process which will prepare the data for your Operations.'),
+                           p('Alternatively, You can click on the respective tabs for different operations but it is highly recommended for smoother operations click on Start Process first.'),
+                           p('The App offers 3 main functionalities.'),
+                           p('',
+                           span(strong("Annoted Document")),' It displays the first 100 entries of the annoted document created without the sentence column and provides a way to download the complete annoted document in csv'),
+                           p('',
+                             span(strong("Word Cloud")),' It displays two word cloud graphs for all the nouns and verbs from the annoted text.'),
+                           p('',
+                             span(strong("Co-occurrences")),' It displays two two co-occurrences graph for all the words and nouns & Adjectives from the document and displays the same in a network graph.'),
+                           p(
+                             span(strong('Submitted By'))),
+                           p(
+                             span(strong('Mithilesh Mohanty 11910004'))),
+                           p(
+                             span(strong('Kiran Krishnakumar 11910053')))
+                           ),
+                  tabPanel("Annoted Document",
+                           dataTableOutput("annotatedDocumentContent"),
+                           actionButton("downloadButton", "Download Data As CSV")
+                           
+                           ),
+                  tabPanel("Word Cloud",
+                           h3(textOutput("nounCaption")),
+                           plotOutput("wordCloudNoun"),
+                           h3(textOutput("verbCaption")),
+                          plotOutput("wordCloudVerb")
+                  ),
+                  tabPanel("Co-Occurances",
+                           plotOutput("coOccurance",height = "500px",width = "75%"),
+                           plotOutput("coOccuranceAny",height = "500px",width = "75%")
+                           )
+                  
+      )
+    )
+  )
+))
