@@ -31,11 +31,23 @@ shinyUI(fluidPage(
                            h1(p("Natural Language Processing in R using udpipe demo")),
                            h4(p("Data input")),
                            p("This app supports only text file (.txt) data file. The text file should be in ASCII encoding else the app will not work. For Best result the text corpus should be within 10 MB else theere will be heavy performance hit.",align="justify"),
-                           p("Some of the sample text files have been uploaded into Git and are available in raw format for use. Ideally all the demo text files are insidd ata folder. The app also requires english udpipe text corpus and requisite R packagages. The english udpipe has been downloaded and placed inside the data directory."),
-                           a(href="https://github.com/sudhir-voleti/sample-data-sets/blob/master/Segmentation%20Discriminant%20and%20targeting%20data/ConneCtorPDASegmentation.csv"
-                             ,"Sample data input file"), 
-                           a(href="https://github.com/sudhir-voleti/sample-data-sets/blob/master/Segmentation%20Discriminant%20and%20targeting%20data/ConneCtorPDASegmentation.csv"
-                             ,"Sample udpipe langauage file"),
+                           p('Please find the sample text files listed below. Click on the link to download. The app also requires english udpipe text corpus and requisite R packagages. The english udpipe can be downloaded from the link below and should be placed inside the',
+                             span(strong(".\\Data\\")),"directory"),
+                           
+                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/DataAnalysis.txt"
+                             ,"DataAnalysis.txt"),
+                           br(),
+                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/ISB.txt"
+                             ,"Isb.txt"),
+                           br(),
+                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/Nokia.txt"
+                             ,"Nokia.txt"),
+                           br(),
+                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/testdata.txt"
+                             ,"Testdata.txt"),
+                           br(),
+                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/english-ud-2.0-170801.udpipe"
+                             ,"English-ud-2.0-170801.udpipe"),
                            br(),
                            h4('How to use this App'),
                            p('To use this app, click on', 
