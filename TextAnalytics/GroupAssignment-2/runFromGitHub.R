@@ -2,5 +2,5 @@
 
 library(shiny)
 
-runGitHub("ISBAnalytics","mithileshmohanty",subdir = "TextAnalytics/GroupAssignment-2/")
+runGitHub("ISBAnalytics","mithileshmohanty", ref = "master",subdir = "TextAnalytics/GroupAssignment-2/")
 

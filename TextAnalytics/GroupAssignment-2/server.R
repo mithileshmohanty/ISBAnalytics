@@ -77,15 +77,32 @@ shinyServer(function(input, output) {
   
 
   output$nounCaption <- renderText(
-    "WordCloud with Noun"
+    if (input$WordCloud=='V'){
+      return(NULL)
+      
+    }else{
+      "WordCloud with Noun"
+    }
+      
+    
   )
   output$verbCaption <- renderText(
-    "WordCloud with Verb"
+    if (input$WordCloud=='N'){
+      return(NULL)
+     
+    }else{
+      "WordCloud with Verb"
+    }
+    
   )
   
   wordcloud_rep <- repeatable(wordcloud)
   
   output$wordCloudNoun <- renderPlot({ 
+    if (input$WordCloud=='V'){
+      return(NULL)
+      
+    }else{
     annotateData <- datasetInput()
     dataNouns =  subset(annotateData, upos %in% "NOUN")
     dataNouns = txt_freq(dataNouns$lemma)
@@ -95,10 +112,15 @@ shinyServer(function(input, output) {
              max.words = 100,
              random.order = FALSE, scale=c(10,0.5),
              colors = "Red")
+    }
     
   })
   
   output$wordCloudVerb <- renderPlot({ 
+    if (input$WordCloud=='N'){
+      return(NULL)
+      
+    }else{
     annotateData <- datasetInput()
     dataVerbs = subset(annotateData, upos %in% "VERB")
     dataVerbs = txt_freq(dataVerbs$lemma)
@@ -108,8 +130,13 @@ shinyServer(function(input, output) {
               max.words = 100,
               random.order = FALSE, scale=c(10,0.5),
               colors = "black")
+    }
   })
   output$coOccurance <- renderPlot({ 
+    if (input$cooccurance=='A'){
+      return(NULL)
+      
+    }else{
     annotateData <- datasetInput()
     coocurranceData <- cooccurrence(x = annotateData$lemma,  relevant = annotateData$upos %in% c("NOUN", "ADJ"))
     wordnetwork <- graph_from_data_frame(head(coocurranceData, 30))
@@ -120,9 +147,14 @@ shinyServer(function(input, output) {
       theme_graph(base_family = "Times New Roman") +
       theme(legend.position = "none") +
       labs(title = "Cooccurrences of Nouns & Adjectives", subtitle = "Within Complete Document")
+    }
   })
   
   output$coOccuranceAny <- renderPlot({ 
+    if (input$cooccurance=='N'){
+      return(NULL)
+      
+    }else{
     annotateData <- datasetInput()
     coocurranceData <- cooccurrence(x = annotateData$lemma)
     wordnetwork <- graph_from_data_frame(head(coocurranceData, 30))
@@ -133,6 +165,7 @@ shinyServer(function(input, output) {
       theme_graph(base_family = "Times New Roman") +
       theme(legend.position = "none") +
       labs(title = "Cooccurrences of Any Word", subtitle = "Within Complete Document")
+    }
   })
   
 })

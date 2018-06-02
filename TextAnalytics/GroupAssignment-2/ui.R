@@ -39,7 +39,15 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel( id = "sidebar",
       fileInput("fileText", "Upload Text File (.txt file)"),
-      actionButton("checkButton", "Start Process")
+      actionButton("checkButton", "Start Process"),
+      radioButtons("WordCloud", "Select Word Cloud to show:",
+                   c("Noun" = "N",
+                     "Verb" = "V",
+                     "Both" = "B")),
+      radioButtons("cooccurance", "Select cooccurance to show:",
+                   c("Noun & Adjectives" = "N",
+                     "All Words" = "A",
+                       "Both" = "B"))
     ),
     
     # Show a plot of the generated distribution
@@ -77,9 +85,9 @@ shinyUI(fluidPage(
                            p('',
                            span(strong("Annoted Document")),' It displays the first 100 entries of the annoted document created without the sentence column and provides a way to download the complete annoted document in csv'),
                            p('',
-                             span(strong("Word Cloud")),' It displays two word cloud graphs for all the nouns and verbs from the annoted text.'),
+                             span(strong("Word Cloud")),' It displays two word cloud graphs for all the nouns and verbs from the annoted text. On the Right sidebar we have the option to choose which kind of word cloud we want to see Noun, Verb or both'),
                            p('',
-                             span(strong("Co-occurrences")),' It displays two two co-occurrences graph for all the words and nouns & Adjectives from the document and displays the same in a network graph.'),
+                             span(strong("Co-occurrences")),' It displays two two co-occurrences graph for all the words and nouns & Adjectives from the document and displays the same in a network graph. On the right side we have the option to choose between Noun & Ajective or All else Both to create the network Cooccurance graph. '),
                            p(
                              span(strong('Submitted By'))),
                            p(
