@@ -4,17 +4,17 @@ import pandas as pd
 import os
 from urllib.request import urlopen
 
-data = urlopen("https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/174aa8c0/TextAnalytics/GroupAssignment-1/CleanText.py")
+data = urlopen("https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@174aa8c0/TextAnalytics/GroupAssignment-1/CleanText.py")
 f=open('CleanText.py', "w") 
 t="".join(map(chr, data.read()))
 f.write(t)
 f.close()
-data = urlopen("https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/174aa8c0/TextAnalytics/GroupAssignment-1/PlotGraph.py")
+data = urlopen("https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@174aa8c0/TextAnalytics/GroupAssignment-1/PlotGraph.py")
 f=open('PlotGraph.py', "w") 
 t="".join(map(chr, data.read()))
 f.write(t)
 f.close()
-data = urlopen("https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/174aa8c0/TextAnalytics/GroupAssignment-1/Dtm.py")
+data = urlopen("https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@174aa8c0/TextAnalytics/GroupAssignment-1/Dtm.py")
 f=open('Dtm.py', "w") 
 t="".join(map(chr, data.read()))
 f.write(t)
