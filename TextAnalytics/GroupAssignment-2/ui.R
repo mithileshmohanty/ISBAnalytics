@@ -61,19 +61,19 @@ shinyUI(fluidPage(
                            p('Please find the sample text files listed below. Click on the link to download. The app also requires english udpipe text corpus and requisite R packagages. The english udpipe can be downloaded from the link below and should be placed inside the',
                              span(strong(".\\Data\\")),"directory"),
                            
-                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/DataAnalysis.txt"
+                           a(href="https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@19e7d67a/TextAnalytics/GroupAssignment-2/Data/DataAnalysis.txt"
                              ,"DataAnalysis.txt"),
                            br(),
-                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/ISB.txt"
+                           a(href="https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@19e7d67a/TextAnalytics/GroupAssignment-2/Data/ISB.txt"
                              ,"Isb.txt"),
                            br(),
-                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/Nokia.txt"
+                           a(href="https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@19e7d67a/TextAnalytics/GroupAssignment-2/Data/Nokia.txt"
                              ,"Nokia.txt"),
                            br(),
-                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/testdata.txt"
+                           a(href="https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@19e7d67a/TextAnalytics/GroupAssignment-2/Data/testdata.txt"
                              ,"Testdata.txt"),
                            br(),
-                           a(href="https://cdn.rawgit.com/mithileshmohanty/ISBAnalytics/19e7d67a/TextAnalytics/GroupAssignment-2/Data/english-ud-2.0-170801.udpipe"
+                           a(href="https://cdn.jsdelivr.net/gh/mithileshmohanty/ISBAnalytics@19e7d67a/TextAnalytics/GroupAssignment-2/Data/english-ud-2.0-170801.udpipe"
                              ,"English-ud-2.0-170801.udpipe"),
                            br(),
                            h4('How to use this App'),
